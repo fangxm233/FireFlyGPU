@@ -63,7 +63,7 @@
       <OutputFile>$(OutDir)/FireFlyGPU.exe</OutputFile>
     </Link>
     <CudaCompile>
-      <CodeGeneration>compute_35,sm_35</CodeGeneration>
+      <CodeGeneration>compute_52,sm_52</CodeGeneration>
       <AdditionalOptions>-Xcompiler "/wd 4819" %(AdditionalOptions)</AdditionalOptions>
       <Include>./;../common/inc</Include>
       <Defines>WIN32</Defines>
@@ -117,22 +117,41 @@ xcopy /d /e /y "..\data\*"  "..\bin\win64\$(Configuration)\"</Command>
     <CudaCompile>
       <FastMath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</FastMath>
     </CudaCompile>
+    <ClCompile>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">GlobalHeader.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <ClCompile>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">GlobalHeader.h</PrecompiledHeaderFile>
+    </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CudaCompile Include="main.cu" />
+    <CudaCompile Include="main.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      </ExcludedFromBuild>
+    </CudaCompile>
+    <CudaCompile Include="PipeLine.cu" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="GlobalSetting.h" />
     <ClInclude Include="GLWindow.h" />
+    <ClInclude Include="ShaderMatrix.h" />
+    <ClInclude Include="ShaderMatrixHelper.h" />
+    <ClInclude Include="PipeLine.cuh" />
+    <ClInclude Include="PipeLine.h" />
+    <ClInclude Include="Renderer.h" />
     <ClInclude Include="Structure.h" />
     <ClInclude Include="Matrix.h" />
     <ClInclude Include="Renderable.h" />
     <ClInclude Include="ResourceLoader.h" />
-    <ClInclude Include="root.h" />
-    <ClInclude Include="Vec.h" />
     <ClInclude Include="Vector.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Matrix.cpp" />
+    <ClCompile Include="PipeLine.cpp" />
+    <ClCompile Include="Renderer.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

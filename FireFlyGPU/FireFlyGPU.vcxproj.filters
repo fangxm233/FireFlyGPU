@@ -1,32 +1,45 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <CudaCompile Include="main.cu" />
+    <CudaCompile Include="PipeLine.cu">
+      <Filter>Render</Filter>
+    </CudaCompile>
+    <CudaCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="GLWindow.h">
-      <Filter>Header</Filter>
-    </ClInclude>
-    <ClInclude Include="root.h">
-      <Filter>Header</Filter>
-    </ClInclude>
     <ClInclude Include="Matrix.h">
       <Filter>Math</Filter>
     </ClInclude>
-    <ClInclude Include="Vector.h">
-      <Filter>Header</Filter>
-    </ClInclude>
-    <ClInclude Include="Vec.h">
-      <Filter>Header</Filter>
-    </ClInclude>
     <ClInclude Include="Renderable.h">
-      <Filter>Header</Filter>
-    </ClInclude>
-    <ClInclude Include="ResourceLoader.h">
-      <Filter>Header</Filter>
+      <Filter>Renderable</Filter>
     </ClInclude>
     <ClInclude Include="Structure.h">
+      <Filter>Structure</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceLoader.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="GLWindow.h">
       <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="GlobalSetting.h" />
+    <ClInclude Include="Renderer.h">
+      <Filter>Render</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="PipeLine.cuh">
+      <Filter>Render</Filter>
+    </ClInclude>
+    <ClInclude Include="PipeLine.h">
+      <Filter>Render</Filter>
+    </ClInclude>
+    <ClInclude Include="ShaderMatrix.h">
+      <Filter>RenderLibrary</Filter>
+    </ClInclude>
+    <ClInclude Include="ShaderMatrixHelper.h">
+      <Filter>Math</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -36,10 +49,28 @@
     <Filter Include="Math">
       <UniqueIdentifier>{4559810d-3a3d-4692-ae88-0274aaf2576b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Renderable">
+      <UniqueIdentifier>{ffc5612e-21c0-4235-912e-79fe4d0ca6c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Structure">
+      <UniqueIdentifier>{283561f6-9013-484c-beae-6dfe8e712a67}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource">
+      <UniqueIdentifier>{026c2050-6d3b-4469-a29c-338a57ad5d65}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Render">
+      <UniqueIdentifier>{0ac3d2c8-fc77-471d-8e90-b4bbe1076c23}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RenderLibrary">
+      <UniqueIdentifier>{716da476-1b35-45ec-bba9-29f3890868c2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Matrix.cpp">
-      <Filter>Math</Filter>
+    <ClCompile Include="Renderer.cpp">
+      <Filter>Render</Filter>
+    </ClCompile>
+    <ClCompile Include="PipeLine.cpp">
+      <Filter>Render</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
